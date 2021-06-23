@@ -13,25 +13,25 @@ LeetCode题解精选代码收集 - Java版【持续更新中】
 这是一道递归题目，想法很重要，保证括号合法性是另一个要点
 
 ```java
-		private List<String> result;
+private List<String> result;
 
-    public List<String> generateParenthesis(int n) {
-        result = new ArrayList<String>();
-        _generate(0, 0, n, "");
-        return result;
+public List<String> generateParenthesis(int n) {
+    result = new ArrayList<String>();
+    _generate(0, 0, n, "");
+    return result;
+}
+
+private void _generate(int left, int right, int n, String s) {
+    //terminator
+    if (left == n && right == n) {
+        result.add(s);
     }
 
-    private void _generate(int left, int right, int n, String s) {
-        //terminator
-        if (left == n && right == n) {
-            result.add(s);
-        }
-
-        if (left < n)
-            _generate(left + 1, right, n, s + "(");
-        if (right < left)
-            _generate(left, right + 1, n, s + ")");
-    }
+    if (left < n)
+        _generate(left + 1, right, n, s + "(");
+    if (right < left)
+        _generate(left, right + 1, n, s + ")");
+}
 ```
 
 
@@ -42,17 +42,16 @@ LeetCode题解精选代码收集 - Java版【持续更新中】
 
 ```java
 public int climbStairs(int n) {
-  			
-        if(n <= 2) return n;
+    if(n <= 2) return n;
 
-        int x = 1;
-        int y = 2;
-        for(int z =3;z <= n; z++){
-            int temp = x + y;
-            x = y;
-            y = temp;
-        }
-        return y;
+    int x = 1;
+    int y = 2;
+    for(int z =3;z <= n; z++){
+        int temp = x + y;
+        x = y;
+        y = temp;
     }
+    return y;
+}
 ```
 
